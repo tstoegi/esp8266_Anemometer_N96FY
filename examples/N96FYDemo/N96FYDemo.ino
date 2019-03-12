@@ -1,3 +1,9 @@
+/*
+  Example programm using the N96FY Anemometer to measure the wind speed.
+
+*/
+
+
 #include <N96FY.h>
 
 N96FY anemometer;
@@ -11,9 +17,9 @@ void loop()
 {
   Serial.print("Windspeed in Km/h: ");
   Serial.println(anemometer.speedInKMH());
-  
+
   Serial.print("Windspeed in MPH : ");
   Serial.println(anemometer.speedInMPH());
-  
+
   delay(5000);
 }
