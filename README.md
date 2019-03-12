@@ -4,6 +4,9 @@
 
 ---
 
+![N96FY](images/2019/03/N96FY.jpg)
+
+---
 Included example "N96FYDemo"  - serial monitor output:
 ```
 12:06:10.021 -> Windspeed in Km/h: 0.00
