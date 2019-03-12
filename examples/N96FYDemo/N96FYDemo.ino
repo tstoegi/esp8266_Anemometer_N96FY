@@ -1,6 +1,10 @@
 /*
   Example programm using the N96FY Anemometer to measure the wind speed.
 
+  Connect the two wires from the N96FY to the ESP8266:
+  Black - GND
+  Red   - D2
+
 */
 
 
