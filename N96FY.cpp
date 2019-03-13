@@ -4,13 +4,22 @@ int N96FY::counter = 0;
 int N96FY::seconds = 0;
 int N96FY::values[AVERAGE_PERIOD_IN_SECONDS];
 
-N96FY::N96FY()
+N96FY::N96FY(bool useInternalPulldown)
+: _useInternalPulldown(useInternalPulldown)
 {
 }
 
 void N96FY::begin()
 {
-    pinMode(INTERRUPT_PIN, INPUT_PULLUP); // We use the internal pullup resistor
+    if (_useInternalPulldown)
+    {
+        pinMode(INTERRUPT_PIN, INPUT_PULLUP); // We use the internal pullup resistor
+    }
+    else
+    {
+        pinMode(INTERRUPT_PIN, INPUT);
+        digitalWrite(INTERRUPT_PIN, LOW); // We do NOT use the internal pullup resistor - instead you must use an external pulldown resistor
+    }
     attachInterrupt(digitalPinToInterrupt(INTERRUPT_PIN), ISR_sensor, CHANGE);   // With "CHANGE" we have 8 calls for one roundtrip
     
     startTimer();

@@ -41,7 +41,7 @@
 class N96FY
 {
 public:
-    N96FY ();
+    N96FY (bool useInternalPulldown = true);
     void begin();
     float speedInKMH();
     float speedInMPH();
@@ -52,6 +52,8 @@ private:
     
     static void ISR_sensor();
     static void ISR_everySecond();
+    
+    bool _useInternalPulldown;
     
     static int counter;
     static int values[AVERAGE_PERIOD_IN_SECONDS];
