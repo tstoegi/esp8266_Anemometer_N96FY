@@ -44,8 +44,7 @@ float N96FY::speedInMPH()
     return calcNumberOfClosingsInOneSecond() * MPH_Factor;
 }
 
-void N96FY::ISR_sensor()
-{
+void ICACHE_RAM_ATTR N96FY::ISR_sensor(){
     // We count the number of changes
     // With "CHANGE" (see begin()) we have 8 calls for one roundtrip
     N96FY::counter++;
